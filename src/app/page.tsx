@@ -7,7 +7,6 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-      <div className="max-w-prose space-y-3">
     <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-gray-50 px-6 py-12 text-center md:px-10 lg:px-16 xl:px-24">
       <GraphPaperBackground />
       <div className="container mx-auto flex flex-col items-center gap-12 lg:flex-row lg:items-start lg:justify-between">
