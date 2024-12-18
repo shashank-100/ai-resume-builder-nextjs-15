@@ -18,14 +18,5 @@ export async function createCustomerPortalSession() {
     throw new Error("Stripe customer ID not found");
   }
 
-  const session = await stripe.billingPortal.sessions.create({
-    customer: stripeCustomerId,
-    return_url: `${env.NEXT_PUBLIC_BASE_URL}/billing`,
-  });
-
-  if (!session.url) {
-    throw new Error("Failed to create customer portal session");
-  }
-
-  return session.url;
+  return `${env.NEXT_PUBLIC_BASE_URL}/billing`
 }
