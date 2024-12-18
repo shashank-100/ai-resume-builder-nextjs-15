@@ -1,28 +1,26 @@
 "use client";
 
-import { env } from "@/env";
 import { useToast } from "@/hooks/use-toast";
 import usePremiumModal from "@/hooks/usePremiumModal";
 import { Check } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
-import { createCheckoutSession } from "./actions";
 
 const premiumFeatures = ["AI tools", "Up to 3 resumes"];
 const premiumPlusFeatures = ["Infinite resumes", "Design customizations"];
 
 export default function PremiumModal() {
   const { open, setOpen } = usePremiumModal();
-
   const { toast } = useToast();
-
   const [loading, setLoading] = useState(false);
 
-  async function handlePremiumClick(priceId: string) {
+  async function handlePremiumClick() {
     try {
       setLoading(true);
-      const redirectUrl = await createCheckoutSession(priceId);
+      // Replace with your custom logic for redirect or action after clicking
+      // For now, just simulate a successful checkout session
+      const redirectUrl = "/billing/success";  // Example placeholder URL
       window.location.href = redirectUrl;
     } catch (error) {
       console.error(error);
@@ -61,14 +59,7 @@ export default function PremiumModal() {
                   </li>
                 ))}
               </ul>
-              <Button
-                onClick={() =>
-                  handlePremiumClick(
-                    env.NEXT_PUBLIC_STRIPE_PRICE_ID_PRO_MONTHLY,
-                  )
-                }
-                disabled={loading}
-              >
+              <Button onClick={handlePremiumClick} disabled={loading}>
                 Get Premium
               </Button>
             </div>
@@ -85,15 +76,7 @@ export default function PremiumModal() {
                   </li>
                 ))}
               </ul>
-              <Button
-                variant="premium"
-                onClick={() =>
-                  handlePremiumClick(
-                    env.NEXT_PUBLIC_STRIPE_PRICE_ID_PRO_PLUS_MONTHLY,
-                  )
-                }
-                disabled={loading}
-              >
+              <Button variant="premium" onClick={handlePremiumClick} disabled={loading}>
                 Get Premium Plus
               </Button>
             </div>
