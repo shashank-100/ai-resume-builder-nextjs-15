@@ -46,6 +46,7 @@ export default function BorderStyleButton({
   return (
     <Button
       variant="outline"
+      size="icon"
       title="Change border style"
       onClick={handleClick}
     >
