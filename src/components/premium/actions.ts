@@ -1,9 +1,9 @@
 "use server";
 
-import { env } from "@/env";
+// import { env } from "@/env";
 import { currentUser } from "@clerk/nextjs/server";
 
-export async function createCheckoutSession(priceId: string) {
+export async function createCheckoutSession() {
   const user = await currentUser();
 
   if (!user) {
