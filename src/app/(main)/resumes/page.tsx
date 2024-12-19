@@ -33,7 +33,7 @@ export default async function Page() {
         userId,
       },
     }),
-    getUserSubscriptionLevel(userId),
+    getUserSubscriptionLevel(),
   ]);
 
   return (
