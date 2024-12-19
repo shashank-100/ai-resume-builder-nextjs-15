@@ -22,7 +22,8 @@ export async function saveResume(values: ResumeValues) {
     throw new Error("User not authenticated");
   }
 
-  const subscriptionLevel = await getUserSubscriptionLevel(userId);
+  const subscriptionLevel = await getUserSubscriptionLevel();
+
 
   if (!id) {
     const resumeCount = await prisma.resume.count({ where: { userId } });
