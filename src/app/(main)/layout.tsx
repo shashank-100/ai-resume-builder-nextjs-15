@@ -15,7 +15,7 @@ export default async function Layout({
     return null;
   }
 
-  const userSubscriptionLevel = await getUserSubscriptionLevel(userId);
+  const userSubscriptionLevel = await getUserSubscriptionLevel();
 
   return (
     <SubscriptionLevelProvider userSubscriptionLevel={userSubscriptionLevel}>
